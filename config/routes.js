@@ -1,4 +1,3 @@
-//Update the name of the controller below and rename the file.
 const template = require("../controllers/template.js")
 const test = require("../controllers/test.js")
 const user = require("../controllers/user.js")

@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
             .references('id')
             .inTable('recruiters')
             .onDelete('CASCADE');
-        table.string('belbinSwitch').defaultTo("off"); // Add default value
+        table.string('belbinSwitch').defaultTo("off"); 
         table.timestamps(true, true);
     })
 };
