@@ -17,18 +17,20 @@
   <div class="sidenav-start">
     <div class="sidenav">
       <a href="/dashboard/<%= recruiter[0].id%>">Home</a>
+      <% if (user.length > 0) { %>
       <button class="dropdown-btn">Users
         <i class="fa fa-caret-down"></i>
       </button>
-      <div class="dropdown-container">
-        <input type="text" id="userSearch" placeholder="Search users..." onkeyup="filterUsers()">
-        <% 
-          let sortedUsers = user.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-          for(let i = 0; i < sortedUsers.length; i++) { 
-        %>
-          <a href="/dashboard/<%= sortedUsers[i].recruiters_id %>/user/<%= sortedUsers[i].id %>" class="user-link" <% if(i >= 4) { %> style="display: none;" <% } %> > <%= sortedUsers[i].name %></a>
-        <% } %>
-      </div>
+        <div class="dropdown-container">
+          <input type="text" id="userSearch" placeholder="Search users..." onkeyup="filterUsers()">
+          <% 
+            let sortedUsers = user.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            for(let i = 0; i < sortedUsers.length; i++) { 
+          %>
+            <a href="/dashboard/<%= sortedUsers[i].recruiters_id %>/user/<%= sortedUsers[i].id %>" class="user-link" <% if(i >= 4) { %> style="display: none;" <% } %> > <%= sortedUsers[i].name %></a>
+          <% } %>
+        </div>
+      <% } %>
       <button class="dropdown-btn">Tests
         <i class="fa fa-caret-down"></i>
       </button>
